@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const EditDescription = ({ index, description, onEdit }) => {
+const EditDescription = ({ index, description, onEdit, onCancel }) => {
   const [newDescription, setNewDescription] = useState(description);
 
   const handleSubmit = (e) => {
@@ -16,6 +16,9 @@ const EditDescription = ({ index, description, onEdit }) => {
         placeholder="Enter description"
         value={newDescription}
         onChange={(e) => setNewDescription(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") onCancel();
+        }}
       />
     </form>
   );

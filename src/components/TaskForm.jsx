@@ -5,6 +5,9 @@ const TaskForm = ({ addTask }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (description.trim() === "") {
+      return;
+    }
     addTask(description);
     setDescription("");
   };
